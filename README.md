@@ -1,5 +1,5 @@
-* # Gatling Simulation - Java Demo Project
-============================================
+# Gatling Simulation - Java Demo Project
+========================================
 
 A simple showcase of a Java project using Gatling for simulating REST API interactions. This project demonstrates how to set up and run performance tests on a REST API.
 
