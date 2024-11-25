@@ -28,7 +28,7 @@ To get started with the simulation, clone the repository and run the following c
 ```bash
 git clone https://github.com/yourusername/simulation-project.git
 cd simulation-project
-./mvnw gatling:test
+mvn gatling:test
 ```
 
 ## Example Code
