@@ -13,6 +13,7 @@ import static io.gatling.javaapi.jdbc.JdbcDsl.*;
 
 public class RestApiRecordedSimulation extends Simulation {
 
+//  https://fakerestapi.azurewebsites.net/index.html
   private HttpProtocolBuilder httpProtocol = http
     .baseUrl("https://fakerestapi.azurewebsites.net")
     .inferHtmlResources()
@@ -78,9 +79,11 @@ public class RestApiRecordedSimulation extends Simulation {
   );
 
 
+  //  our scenario is called RestApiRecordedSimulation
+  //  U need to edit the codes sightly to make them more meaningful
   private ScenarioBuilder scn = scenario("RestApiRecordedSimulation")
     .exec(
-      http("request_0")
+      http("LOAD_SWAGGER_PAGE")
         .get("/swagger-ui.css")
         .headers(headers_0)
         .resources(
@@ -106,17 +109,17 @@ public class RestApiRecordedSimulation extends Simulation {
             .get("/swagger/v1/swagger.json")
             .headers(headers_6)
         ),
-      pause(15),
-      http("request_7")
+      pause(1),
+      http("LOAD_ALL_ACTIVITIES")
         .get("/api/v1/Activities")
         .headers(headers_7),
-      pause(26),
-      http("request_8")
+      pause(6),
+      http("POST_NEW_ACTIVITIES")
         .post("/api/v1/Activities")
         .headers(headers_8)
         .body(RawFileBody("io/gatling/demo/restapirecordedsimulation/0008_request.json")),
-      pause(13),
-      http("request_9")
+      pause(1),
+      http("LOAD_ACTIVITY_ID_30")
         .get("/api/v1/Activities/30")
         .headers(headers_7)
     );
